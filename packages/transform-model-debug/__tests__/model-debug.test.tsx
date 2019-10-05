@@ -10,7 +10,9 @@ describe("ModelDebug", () => {
     );
 
     const instance = modelDebugWrapper.instance();
-    expect(instance.shouldComponentUpdate()).toBeTruthy();
+    if (instance.shouldComponentUpdate !== undefined) {
+      expect(instance.shouldComponentUpdate({}, {}, {})).toBeTruthy();
+    }
 
     expect(
       modelDebugWrapper.contains(
